@@ -2,17 +2,17 @@ import { PropsWithChildren, useEffect, useState } from "react";
 import { View, Text } from "react-native";
 import VerticalSlider from "rn-vertical-slider";
 
-import { ThemedView } from "@/components/ThemedView";
-import { ThemedText } from "@/components/ThemedText";
-import Button from "./Button";
-import { CenterView } from "./CenterView";
+import { ThemedView } from "@/components/ui/ThemedView";
+import { ThemedText } from "@/components/ui/ThemedText";
+import Button from "../ui/Button";
+
+import { channel } from "@/types/fixture";
 
 export function ChannelController({
-  children,
-  title,
-}: PropsWithChildren & { title: string }) {
+  channel,
+}: PropsWithChildren & { channel: channel }) {
   const [value, setValue] = useState(0);
-  const [oldValue, setoldValue] = useState(0);
+  const [oldValue, setOldValue] = useState(0);
   const [flash, setFlash] = useState(false);
   const [borderColor, setBorderColor] = useState("#eee");
 
@@ -23,19 +23,37 @@ export function ChannelController({
   return (
     <ThemedView
       style={{
-        gap: 16,
-        padding: 16,
+        padding: 8,
         width: 112,
         height: 332,
         borderRadius: 8,
         borderColor: borderColor,
+        flex: 1,
+        flexDirection: "column",
+        justifyContent: "space-between",
         borderWidth: 2,
       }}
     >
-      <ThemedText style={{ textAlign: "center" }} type="defaultSemiBold">
-        {title}
-      </ThemedText>
-      <CenterView>
+      <ThemedView centered style={{ gap: 0, paddingVertical: 0 }}>
+        <ThemedText
+          selectable={false}
+          style={{
+            fontWeight: "bold",
+            fontSize: 12,
+            paddingVertical: 0,
+          }}
+        >
+          {channel.channel}
+        </ThemedText>
+        <ThemedText
+          selectable={false}
+          style={{ textAlign: "center", fontSize: 16 }}
+          type="defaultSemiBold"
+        >
+          {channel.name}
+        </ThemedText>
+      </ThemedView>
+      <ThemedView centered>
         <VerticalSlider
           value={value}
           onChange={setValue}
@@ -43,7 +61,7 @@ export function ChannelController({
           width={40}
           step={1}
           min={0}
-          max={100}
+          max={255}
           borderRadius={8}
           minimumTrackTintColor="#2979FF"
           maximumTrackTintColor={flash ? "#2979FF" : "#fff"}
@@ -58,21 +76,23 @@ export function ChannelController({
                 alignItems: "center",
               }}
             >
-              <Text style={{ fontSize: 16, fontWeight: "bold" }}>{value}</Text>
+              <Text style={{ fontSize: 16, fontWeight: "bold" }}>
+                {Math.round((value / 255) * 100)}
+              </Text>
             </View>
           )}
           containerStyle={{ backgroundColor: "#e0e0e0", borderRadius: 8 }}
           sliderStyle={{ backgroundColor: "#fff", borderRadius: 8 }}
         />
-      </CenterView>
-      <CenterView>
+      </ThemedView>
+      <ThemedView centered>
         <Button
           buttonBackgroundColor="#FF2929"
           label="Flash"
           onPressIn={() => {
             if (flash) return;
-            setoldValue(value);
-            setValue(100);
+            setOldValue(value);
+            setValue(255);
             setFlash(true);
           }}
           onPressOut={() => {
@@ -80,7 +100,7 @@ export function ChannelController({
             setFlash(false);
           }}
         />
-      </CenterView>
+      </ThemedView>
     </ThemedView>
   );
 }

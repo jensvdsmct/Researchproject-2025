@@ -25,7 +25,11 @@ export function FilterCheckbox({
         disabled={disabled}
       />
       {icon && <View style={styles.icon}>{icon}</View>}
-      {label && <Text style={styles.label}>{label}</Text>}
+      {label && (
+        <Text selectable={false} style={styles.label}>
+          {label}
+        </Text>
+      )}
     </View>
   );
 }

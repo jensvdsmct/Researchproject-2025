@@ -1,40 +1,70 @@
 import { PropsWithChildren, useEffect, useState } from "react";
-import { ThemedView } from "@/components/ThemedView";
-import { FilterCheckbox } from "@/components/filterCheckbox";
-import { Palette, Sun, Move } from "lucide-react-native";
+import { ThemedView } from "@/components/ui/ThemedView";
+import { FilterCheckbox } from "@/components/channels/filterCheckbox";
+import { Palette, Sun, Move, Sparkles } from "lucide-react-native";
 import { View } from "react-native";
 
+export interface FilterState {
+  intensity: boolean;
+  color: boolean;
+  position: boolean;
+  effects: boolean;
+}
+
 export function ChannelFilter({
-  children,
-  title,
-}: PropsWithChildren & { title: string }) {
+  onFiltersChange,
+  availableTypes = [],
+}: PropsWithChildren & {
+  onFiltersChange?: (filters: FilterState) => void;
+  availableTypes?: string[];
+}) {
   const [flash, setFlash] = useState(false);
   const [borderColor, setBorderColor] = useState("#eee");
 
   const [filters, setFilters] = useState([
     {
       name: "intensity",
-      selected: false,
+      selected: true,
       icon: <Sun size={24} color={"#fff"} />,
       label: "Intensity",
     },
     {
       name: "color",
-      selected: false,
+      selected: true,
       icon: <Palette size={24} color={"#fff"} />,
       label: "Color",
     },
     {
       name: "position",
-      selected: false,
+      selected: true,
       icon: <Move size={24} color={"#fff"} />,
       label: "Position",
     },
+    {
+      name: "effects",
+      selected: true,
+      icon: <Sparkles size={24} color={"#fff"} />,
+      label: "Effects",
+    },
   ]);
+
+  const displayedFilters = filters.filter((f) =>
+    availableTypes.includes(f.name)
+  );
 
   useEffect(() => {
     setBorderColor(flash ? "#2979FF" : "#eee");
   }, [flash]);
+
+  useEffect(() => {
+    const filterState: FilterState = {
+      intensity: filters.find((f) => f.name === "intensity")?.selected ?? false,
+      color: filters.find((f) => f.name === "color")?.selected ?? false,
+      position: filters.find((f) => f.name === "position")?.selected ?? false,
+      effects: filters.find((f) => f.name === "effects")?.selected ?? false,
+    };
+    onFiltersChange?.(filterState);
+  }, [filters]);
 
   const toggleAll = (checked: boolean) => {
     const newFilters = filters.map((f) => ({ ...f, selected: checked }));
@@ -55,18 +85,19 @@ export function ChannelFilter({
     >
       <View style={{ gap: 8 }}>
         <FilterCheckbox
-          checked={filters.every((f) => f.selected)}
+          checked={displayedFilters.every((f) => f.selected)}
           onValueChange={toggleAll}
           label="Select All"
         />
 
-        {filters.map((filter, index) => (
+        {displayedFilters.map((filter) => (
           <FilterCheckbox
             key={filter.name}
             checked={filter.selected}
             onValueChange={(checked) => {
-              const newFilters = [...filters];
-              newFilters[index].selected = checked;
+              const newFilters = filters.map((f) =>
+                f.name === filter.name ? { ...f, selected: checked } : f
+              );
               setFilters(newFilters);
             }}
             label={filter.label}
