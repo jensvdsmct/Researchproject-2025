@@ -5,6 +5,7 @@ import Animated, {
   useSharedValue,
   withSpring,
   runOnJS,
+  SharedValue,
 } from "react-native-reanimated";
 import { ThemedText } from "../ui/ThemedText";
 
@@ -16,6 +17,11 @@ interface DraggableLampProps {
   isSelected: boolean;
   onSelect: () => void;
   onPositionChange: (x: number, y: number) => void;
+  canvasWidth: number;
+  canvasHeight: number;
+  scale: SharedValue<number>;
+  canvasTranslateX: SharedValue<number>;
+  canvasTranslateY: SharedValue<number>;
 }
 
 export function DraggableLamp({
@@ -26,6 +32,11 @@ export function DraggableLamp({
   isSelected,
   onSelect,
   onPositionChange,
+  canvasWidth,
+  canvasHeight,
+  scale,
+  canvasTranslateX,
+  canvasTranslateY,
 }: DraggableLampProps) {
   const translateX = useSharedValue(initialX);
   const translateY = useSharedValue(initialY);
@@ -39,8 +50,9 @@ export function DraggableLamp({
       };
     })
     .onUpdate((event) => {
-      translateX.value = context.value.x + event.translationX;
-      translateY.value = context.value.y + event.translationY;
+      // Allow any position including negative values
+      translateX.value = context.value.x + event.translationX / scale.value;
+      translateY.value = context.value.y + event.translationY / scale.value;
     })
     .onEnd(() => {
       runOnJS(onPositionChange)(translateX.value, translateY.value);

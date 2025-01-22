@@ -1,6 +1,8 @@
 import Checkbox from "expo-checkbox";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, View } from "react-native";
 import { ReactNode } from "react";
+import { ThemedText } from "@/components/ui/ThemedText";
+import { ThemedView } from "@/components/ui/ThemedView";
 
 export function FilterCheckbox({
   checked,
@@ -24,11 +26,11 @@ export function FilterCheckbox({
         color={checked ? "#2979FF" : undefined}
         disabled={disabled}
       />
-      {icon && <View style={styles.icon}>{icon}</View>}
+      {icon && <ThemedView style={styles.icon}>{icon}</ThemedView>}
       {label && (
-        <Text selectable={false} style={styles.label}>
+        <ThemedText selectable={false} style={styles.label}>
           {label}
-        </Text>
+        </ThemedText>
       )}
     </View>
   );
@@ -45,7 +47,6 @@ const styles = StyleSheet.create({
   },
   label: {
     fontSize: 15,
-    color: "#fff",
   },
   icon: {
     marginRight: 4,
