@@ -51,6 +51,11 @@ export type draggableFixture = {
   y: number; // Y position of the fixture
 };
 
+export type channelData = {
+  channel: number; // Channel number
+  value: number; // Value of the channel
+};
+
 // LED PAR EXAMPLE
 // const ledPar: Fixture = {
 //   id: 1,

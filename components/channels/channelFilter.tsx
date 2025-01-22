@@ -3,6 +3,7 @@ import { ThemedView } from "@/components/ui/ThemedView";
 import { FilterCheckbox } from "@/components/channels/filterCheckbox";
 import { Palette, Sun, Move, Sparkles } from "lucide-react-native";
 import { View } from "react-native";
+import { useThemeColor } from "@/hooks/useThemeColor";
 
 export interface FilterState {
   intensity: boolean;
@@ -18,32 +19,30 @@ export function ChannelFilter({
   onFiltersChange?: (filters: FilterState) => void;
   availableTypes?: string[];
 }) {
-  const [flash, setFlash] = useState(false);
-  const [borderColor, setBorderColor] = useState("#eee");
-
+  const textColor = useThemeColor({}, "text");
   const [filters, setFilters] = useState([
     {
       name: "intensity",
       selected: true,
-      icon: <Sun size={24} color={"#fff"} />,
+      icon: <Sun size={24} color={textColor} />,
       label: "Intensity",
     },
     {
       name: "color",
       selected: true,
-      icon: <Palette size={24} color={"#fff"} />,
+      icon: <Palette size={24} color={textColor} />,
       label: "Color",
     },
     {
       name: "position",
       selected: true,
-      icon: <Move size={24} color={"#fff"} />,
+      icon: <Move size={24} color={textColor} />,
       label: "Position",
     },
     {
       name: "effects",
       selected: true,
-      icon: <Sparkles size={24} color={"#fff"} />,
+      icon: <Sparkles size={24} color={textColor} />,
       label: "Effects",
     },
   ]);
@@ -51,10 +50,6 @@ export function ChannelFilter({
   const displayedFilters = filters.filter((f) =>
     availableTypes.includes(f.name)
   );
-
-  useEffect(() => {
-    setBorderColor(flash ? "#2979FF" : "#eee");
-  }, [flash]);
 
   useEffect(() => {
     const filterState: FilterState = {
@@ -76,10 +71,10 @@ export function ChannelFilter({
       style={{
         gap: 16,
         padding: 16,
-        width: 200,
+        width: 164,
         height: "auto",
         borderRadius: 8,
-        borderColor: borderColor,
+        borderColor: "#eee",
         borderWidth: 2,
       }}
     >
