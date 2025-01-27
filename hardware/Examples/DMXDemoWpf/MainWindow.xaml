@@ -1,0 +1,31 @@
+﻿<Window x:Class="DMXDemoWpf.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DMXDemoWpf"
+        mc:Ignorable="d"
+        Title="Led Par Demo" SizeToContent="Height" Width="800" ResizeMode="NoResize" Closing="Window_Closing">
+    <StackPanel>
+        <GroupBox Header="Kies je poort" Margin="10">
+            <ComboBox Name="cbxPortName" Margin="10" SelectionChanged="cbxPortName_SelectionChanged"></ComboBox>
+        </GroupBox>
+        <GroupBox Header="Rood" Margin="10">
+            <Slider Margin="10" Minimum="0" Maximum="255" TickFrequency="1" IsSnapToTickEnabled="True"
+                    IsEnabled="False" ValueChanged="Slider_ValueChanged" Name="sldrRed"></Slider>
+        </GroupBox>
+        <GroupBox Header="Groen" Margin="10">
+            <Slider Margin="10" Minimum="0" Maximum="255" TickFrequency="1" IsSnapToTickEnabled="True"
+                    IsEnabled="False" ValueChanged="Slider_ValueChanged" Name="sldrGreen"></Slider>
+        </GroupBox>
+        <GroupBox Header="Blauw" Margin="10">
+            <Slider Margin="10" Minimum="0" Maximum="255" TickFrequency="1" IsSnapToTickEnabled="True"
+                    IsEnabled="False" ValueChanged="Slider_ValueChanged" Name="sldrBlue"></Slider>
+        </GroupBox>
+        <GroupBox Header="Intensity" Margin="10">
+            <Slider Margin="10" Minimum="0" Maximum="255" TickFrequency="1" IsSnapToTickEnabled="True"
+                    IsEnabled="False" ValueChanged="Slider_ValueChanged" Name="sldrDim"></Slider>
+        </GroupBox>
+        <Button Name="btnPartyMode" Content="Party Mode: Off" Margin="10" Click="btnPartyMode_Click" IsEnabled="False"/>
+    </StackPanel>
+</Window>

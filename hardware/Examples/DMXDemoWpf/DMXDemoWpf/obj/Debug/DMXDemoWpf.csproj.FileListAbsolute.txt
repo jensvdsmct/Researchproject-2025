@@ -1,0 +1,47 @@
+C:\temp\20201116 - Theorie ICT\DMXDemoWpf\DMXDemoWpf\bin\Debug\DMXDemoWpf.exe.config
+C:\temp\20201116 - Theorie ICT\DMXDemoWpf\DMXDemoWpf\bin\Debug\DMXDemoWpf.exe
+C:\temp\20201116 - Theorie ICT\DMXDemoWpf\DMXDemoWpf\bin\Debug\DMXDemoWpf.pdb
+C:\temp\20201116 - Theorie ICT\DMXDemoWpf\DMXDemoWpf\obj\Debug\DMXDemoWpf.csprojAssemblyReference.cache
+C:\temp\20201116 - Theorie ICT\DMXDemoWpf\DMXDemoWpf\obj\Debug\MainWindow.g.cs
+C:\temp\20201116 - Theorie ICT\DMXDemoWpf\DMXDemoWpf\obj\Debug\App.g.cs
+C:\temp\20201116 - Theorie ICT\DMXDemoWpf\DMXDemoWpf\obj\Debug\DMXDemoWpf_MarkupCompile.cache
+C:\temp\20201116 - Theorie ICT\DMXDemoWpf\DMXDemoWpf\obj\Debug\DMXDemoWpf_MarkupCompile.lref
+C:\temp\20201116 - Theorie ICT\DMXDemoWpf\DMXDemoWpf\obj\Debug\MainWindow.baml
+C:\temp\20201116 - Theorie ICT\DMXDemoWpf\DMXDemoWpf\obj\Debug\DMXDemoWpf.g.resources
+C:\temp\20201116 - Theorie ICT\DMXDemoWpf\DMXDemoWpf\obj\Debug\DMXDemoWpf.Properties.Resources.resources
+C:\temp\20201116 - Theorie ICT\DMXDemoWpf\DMXDemoWpf\obj\Debug\DMXDemoWpf.csproj.GenerateResource.cache
+C:\temp\20201116 - Theorie ICT\DMXDemoWpf\DMXDemoWpf\obj\Debug\DMXDemoWpf.csproj.CoreCompileInputs.cache
+C:\temp\20201116 - Theorie ICT\DMXDemoWpf\DMXDemoWpf\obj\Debug\DMXDemoWpf.exe
+C:\temp\20201116 - Theorie ICT\DMXDemoWpf\DMXDemoWpf\obj\Debug\DMXDemoWpf.pdb
+C:\Users\jensv\Documents\School\2020-2021\ict\16-11-2020\DMXDemoWpf\DMXDemoWpf\bin\Debug\DMXDemoWpf.exe.config
+C:\Users\jensv\Documents\School\2020-2021\ict\16-11-2020\DMXDemoWpf\DMXDemoWpf\bin\Debug\DMXDemoWpf.exe
+C:\Users\jensv\Documents\School\2020-2021\ict\16-11-2020\DMXDemoWpf\DMXDemoWpf\bin\Debug\DMXDemoWpf.pdb
+C:\Users\jensv\Documents\School\2020-2021\ict\16-11-2020\DMXDemoWpf\DMXDemoWpf\obj\Debug\DMXDemoWpf.csproj.AssemblyReference.cache
+C:\Users\jensv\Documents\School\2020-2021\ict\16-11-2020\DMXDemoWpf\DMXDemoWpf\obj\Debug\DMXDemoWpf.csproj.SuggestedBindingRedirects.cache
+C:\Users\jensv\Documents\School\2020-2021\ict\16-11-2020\DMXDemoWpf\DMXDemoWpf\obj\Debug\MainWindow.g.cs
+C:\Users\jensv\Documents\School\2020-2021\ict\16-11-2020\DMXDemoWpf\DMXDemoWpf\obj\Debug\App.g.cs
+C:\Users\jensv\Documents\School\2020-2021\ict\16-11-2020\DMXDemoWpf\DMXDemoWpf\obj\Debug\DMXDemoWpf_MarkupCompile.cache
+C:\Users\jensv\Documents\School\2020-2021\ict\16-11-2020\DMXDemoWpf\DMXDemoWpf\obj\Debug\DMXDemoWpf_MarkupCompile.lref
+C:\Users\jensv\Documents\School\2020-2021\ict\16-11-2020\DMXDemoWpf\DMXDemoWpf\obj\Debug\MainWindow.baml
+C:\Users\jensv\Documents\School\2020-2021\ict\16-11-2020\DMXDemoWpf\DMXDemoWpf\obj\Debug\DMXDemoWpf.g.resources
+C:\Users\jensv\Documents\School\2020-2021\ict\16-11-2020\DMXDemoWpf\DMXDemoWpf\obj\Debug\DMXDemoWpf.Properties.Resources.resources
+C:\Users\jensv\Documents\School\2020-2021\ict\16-11-2020\DMXDemoWpf\DMXDemoWpf\obj\Debug\DMXDemoWpf.csproj.GenerateResource.cache
+C:\Users\jensv\Documents\School\2020-2021\ict\16-11-2020\DMXDemoWpf\DMXDemoWpf\obj\Debug\DMXDemoWpf.csproj.CoreCompileInputs.cache
+C:\Users\jensv\Documents\School\2020-2021\ict\16-11-2020\DMXDemoWpf\DMXDemoWpf\obj\Debug\DMXDemoWpf.exe
+C:\Users\jensv\Documents\School\2020-2021\ict\16-11-2020\DMXDemoWpf\DMXDemoWpf\obj\Debug\DMXDemoWpf.pdb
+C:\Users\jensv\Documents\School\2024-2025\researchproject\examples\DMXDemoWpf\DMXDemoWpf\bin\Debug\DMXDemoWpf.exe.config
+C:\Users\jensv\Documents\School\2024-2025\researchproject\examples\DMXDemoWpf\DMXDemoWpf\bin\Debug\DMXDemoWpf.exe
+C:\Users\jensv\Documents\School\2024-2025\researchproject\examples\DMXDemoWpf\DMXDemoWpf\bin\Debug\DMXDemoWpf.pdb
+C:\Users\jensv\Documents\School\2024-2025\researchproject\examples\DMXDemoWpf\DMXDemoWpf\obj\Debug\DMXDemoWpf.csproj.AssemblyReference.cache
+C:\Users\jensv\Documents\School\2024-2025\researchproject\examples\DMXDemoWpf\DMXDemoWpf\obj\Debug\DMXDemoWpf.csproj.SuggestedBindingRedirects.cache
+C:\Users\jensv\Documents\School\2024-2025\researchproject\examples\DMXDemoWpf\DMXDemoWpf\obj\Debug\MainWindow.g.cs
+C:\Users\jensv\Documents\School\2024-2025\researchproject\examples\DMXDemoWpf\DMXDemoWpf\obj\Debug\App.g.cs
+C:\Users\jensv\Documents\School\2024-2025\researchproject\examples\DMXDemoWpf\DMXDemoWpf\obj\Debug\DMXDemoWpf_MarkupCompile.cache
+C:\Users\jensv\Documents\School\2024-2025\researchproject\examples\DMXDemoWpf\DMXDemoWpf\obj\Debug\DMXDemoWpf_MarkupCompile.lref
+C:\Users\jensv\Documents\School\2024-2025\researchproject\examples\DMXDemoWpf\DMXDemoWpf\obj\Debug\MainWindow.baml
+C:\Users\jensv\Documents\School\2024-2025\researchproject\examples\DMXDemoWpf\DMXDemoWpf\obj\Debug\DMXDemoWpf.g.resources
+C:\Users\jensv\Documents\School\2024-2025\researchproject\examples\DMXDemoWpf\DMXDemoWpf\obj\Debug\DMXDemoWpf.Properties.Resources.resources
+C:\Users\jensv\Documents\School\2024-2025\researchproject\examples\DMXDemoWpf\DMXDemoWpf\obj\Debug\DMXDemoWpf.csproj.GenerateResource.cache
+C:\Users\jensv\Documents\School\2024-2025\researchproject\examples\DMXDemoWpf\DMXDemoWpf\obj\Debug\DMXDemoWpf.csproj.CoreCompileInputs.cache
+C:\Users\jensv\Documents\School\2024-2025\researchproject\examples\DMXDemoWpf\DMXDemoWpf\obj\Debug\DMXDemoWpf.exe
+C:\Users\jensv\Documents\School\2024-2025\researchproject\examples\DMXDemoWpf\DMXDemoWpf\obj\Debug\DMXDemoWpf.pdb
