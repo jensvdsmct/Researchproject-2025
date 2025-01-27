@@ -16,9 +16,6 @@ import { SafeAreaView, SafeAreaProvider } from "react-native-safe-area-context";
 
 import { ChannelProvider } from "@/store/channelStore";
 import { BLEProvider, useBLEContext } from "@/store/bleContext";
-import { ThemedText } from "@/components/ui/ThemedText";
-import { StatusBar } from "expo-status-bar";
-import { ThemedView } from "@/components/ui/ThemedView";
 import { channelData } from "@/types/fixture";
 
 function NativeHeader() {
@@ -163,22 +160,21 @@ export default function RootLayout() {
             }}
           >
             <Stack.Screen
-              name="index"
-              options={{
-                title: "Web DMX",
-                headerBackVisible: false,
-              }}
-            />
-            <Stack.Screen
               name="controller"
               options={{
                 title: "Controller",
               }}
             />
             <Stack.Screen
-              name="effect"
+              name="effect-pads"
               options={{
                 title: "Effect Pads",
+              }}
+            />
+            <Stack.Screen
+              name="fixture-presets/index"
+              options={{
+                title: "Fixture Editor",
               }}
             />
             <Stack.Screen
@@ -215,9 +211,15 @@ export default function RootLayout() {
                     }}
                   />
                   <Stack.Screen
-                    name="effect"
+                    name="effect-pads"
                     options={{
                       title: "Effect Pads",
+                    }}
+                  />
+                  <Stack.Screen
+                    name="fixture-presets/index"
+                    options={{
+                      title: "Fixture Editor",
                     }}
                   />
                   <Stack.Screen

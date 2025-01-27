@@ -1,12 +1,18 @@
-import React, { createContext, useContext, useState, useEffect, useRef } from "react";
-import { channelData } from "@/types/fixture";
+import React, {
+  createContext,
+  useContext,
+  useState,
+  useEffect,
+  useRef,
+} from "react";
+import { channelData, channelType, Fixture } from "@/types/fixture";
 import { useBLEContext } from "@/store/bleContext";
 import { Platform } from "react-native";
 
 type ChannelContextType = {
+  initialFixtures: Fixture[];
   channelValues: channelData[];
-  setChannelValue: (channel: number, value: number) => void;
-  getChannelDataAsBytes: (channelValues: channelData[]) => Uint8Array;
+  setChannelValue: (channeldata: channelData) => void;
 };
 
 const ChannelContext = createContext<ChannelContextType | undefined>(undefined);
@@ -31,49 +37,288 @@ export const ChannelProvider = ({
     }
   });
 
-  const setChannelValue = (channel: number, value: number) => {
+  const initialFixtures: Fixture[] = [
+    {
+      id: 1,
+      name: "LED PARty TCL Spot",
+      manufacturer: "Eurolite",
+      numberOfChannels: 5,
+      startAddress: 1,
+      endAddress: 5,
+      channels: [
+        {
+          name: "Red",
+          type: channelType.Color,
+          subtype: channelType.Red,
+          channel: 1,
+          multipurpose: false,
+          value: 0,
+        },
+        {
+          name: "Green",
+          type: channelType.Color,
+          subtype: channelType.Green,
+          channel: 2,
+          multipurpose: false,
+          value: 0,
+        },
+        {
+          name: "Blue",
+          type: channelType.Color,
+          subtype: channelType.Blue,
+          channel: 3,
+          multipurpose: false,
+          value: 0,
+        },
+        {
+          name: "Dimmer",
+          type: channelType.Intensity,
+          channel: 4,
+          multipurpose: false,
+          value: 0,
+        },
+        {
+          name: "Effects",
+          type: channelType.Effects,
+          channel: 5,
+          multipurpose: true,
+          subChannels: [
+            {
+              name: "Sound",
+              type: channelType.Sound,
+              range: { start: 0, end: 5 },
+            },
+            {
+              name: "Strobe",
+              type: channelType.Strobe,
+              range: { start: 11, end: 255 },
+            },
+          ],
+        },
+      ],
+    },
+    {
+      id: 2,
+      name: "LED PARty TCL Spot",
+      manufacturer: "Eurolite",
+      numberOfChannels: 5,
+      startAddress: 6,
+      endAddress: 10,
+      channels: [
+        {
+          name: "Red",
+          type: channelType.Color,
+          subtype: channelType.Red,
+          channel: 6,
+          multipurpose: false,
+          value: 0,
+        },
+        {
+          name: "Green",
+          type: channelType.Color,
+          subtype: channelType.Green,
+          channel: 7,
+          multipurpose: false,
+          value: 0,
+        },
+        {
+          name: "Blue",
+          type: channelType.Color,
+          subtype: channelType.Blue,
+          channel: 8,
+          multipurpose: false,
+          value: 0,
+        },
+        {
+          name: "Dimmer",
+          type: channelType.Intensity,
+          channel: 9,
+          multipurpose: false,
+          value: 0,
+        },
+        {
+          name: "Effects",
+          type: channelType.Effects,
+          channel: 10,
+          multipurpose: true,
+          subChannels: [
+            {
+              name: "Sound",
+              type: channelType.Sound,
+              range: { start: 1, end: 5 },
+            },
+            {
+              name: "Strobe",
+              type: channelType.Strobe,
+              range: { start: 11, end: 255 },
+            },
+          ],
+        },
+      ],
+    },
+    {
+      id: 3,
+      name: "LED PARty TCL Spot",
+      manufacturer: "Eurolite",
+      numberOfChannels: 5,
+      startAddress: 11,
+      endAddress: 15,
+      channels: [
+        {
+          name: "Red",
+          type: channelType.Color,
+          subtype: channelType.Red,
+          channel: 11,
+          multipurpose: false,
+          value: 0,
+        },
+        {
+          name: "Green",
+          type: channelType.Color,
+          subtype: channelType.Green,
+          channel: 12,
+          multipurpose: false,
+          value: 0,
+        },
+        {
+          name: "Blue",
+          type: channelType.Color,
+          subtype: channelType.Blue,
+          channel: 13,
+          multipurpose: false,
+          value: 0,
+        },
+        {
+          name: "Dimmer",
+          type: channelType.Intensity,
+          channel: 14,
+          multipurpose: false,
+          value: 0,
+        },
+        {
+          name: "Effects",
+          type: channelType.Effects,
+          channel: 15,
+          multipurpose: true,
+          subChannels: [
+            {
+              name: "Sound",
+              type: channelType.Sound,
+              range: { start: 1, end: 5 },
+            },
+            {
+              name: "Strobe",
+              type: channelType.Strobe,
+              range: { start: 11, end: 255 },
+            },
+          ],
+        },
+      ],
+    },
+    {
+      id: 4,
+      name: "LED PARty TCL Spot",
+      manufacturer: "Eurolite",
+      numberOfChannels: 5,
+      startAddress: 16,
+      endAddress: 20,
+      channels: [
+        {
+          name: "Red",
+          type: channelType.Color,
+          subtype: channelType.Red,
+          channel: 16,
+          multipurpose: false,
+          value: 0,
+        },
+        {
+          name: "Green",
+          type: channelType.Color,
+          subtype: channelType.Green,
+          channel: 17,
+          multipurpose: false,
+          value: 0,
+        },
+        {
+          name: "Blue",
+          type: channelType.Color,
+          subtype: channelType.Blue,
+          channel: 18,
+          multipurpose: false,
+          value: 0,
+        },
+        {
+          name: "Dimmer",
+          type: channelType.Intensity,
+          channel: 19,
+          multipurpose: false,
+          value: 0,
+        },
+        {
+          name: "Effects",
+          type: channelType.Effects,
+          channel: 20,
+          multipurpose: true,
+          subChannels: [
+            {
+              name: "Sound",
+              type: channelType.Sound,
+              range: { start: 1, end: 5 },
+            },
+            {
+              name: "Strobe",
+              type: channelType.Strobe,
+              range: { start: 11, end: 255 },
+            },
+          ],
+        },
+      ],
+    },
+  ];
+
+  const setChannelValue = (channeldata: channelData) => {
     isUpdating.current = true;
     setChannelValues((prev) => {
       const newValues = [...prev];
-      const existingIndex = newValues.findIndex((cd) => cd.channel === channel);
-      const currentValue = existingIndex >= 0 ? newValues[existingIndex].value : 0;
+      const existingIndex = newValues.findIndex(
+        (cd) => cd.channel === channeldata.channel
+      );
+      const currentValue =
+        existingIndex >= 0 ? newValues[existingIndex].value : 0;
 
       // Only proceed if the value has actually changed
-      if (currentValue !== value) {
+      if (currentValue !== channeldata.value) {
         if (existingIndex >= 0) {
-          newValues[existingIndex] = { channel, value };
+          newValues[existingIndex] = { ...channeldata };
         } else {
-          newValues.push({ channel, value });
+          newValues.push({ ...channeldata });
         }
 
         // Add to pending changes instead of sending immediately
-        const existingChange = pendingChanges.current.findIndex(c => c.channel === channel);
+        const existingChange = pendingChanges.current.findIndex(
+          (c) => c.channel === channeldata.channel
+        );
         if (existingChange >= 0) {
-          pendingChanges.current[existingChange].value = value;
+          pendingChanges.current[existingChange].value = channeldata.value;
         } else {
-          pendingChanges.current.push({ channel, value });
+          pendingChanges.current.push({ ...channeldata });
         }
 
         return newValues;
       }
-      
+
       return prev;
     });
     isUpdating.current = false;
   };
 
-  const getChannelDataAsBytes = (channelValues: channelData[]): Uint8Array => {
-    const maxChannel = Math.max(...channelValues.map((cd) => cd.channel));
-    const byteArray = new Uint8Array(maxChannel);
-    channelValues.forEach((cd) => {
-      byteArray[cd.channel - 1] = cd.value;
-    });
-    return byteArray;
-  };
-
   return (
     <ChannelContext.Provider
-      value={{ channelValues, setChannelValue, getChannelDataAsBytes }}
+      value={{
+        channelValues,
+        setChannelValue,
+        initialFixtures,
+      }}
     >
       {children}
     </ChannelContext.Provider>

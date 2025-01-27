@@ -7,7 +7,7 @@ import Animated, {
   runOnJS,
   SharedValue,
 } from "react-native-reanimated";
-import { ThemedText } from "../ui/ThemedText";
+import { ThemedText } from "@/components/ui/ThemedText";
 
 interface DraggableLampProps {
   id: number;

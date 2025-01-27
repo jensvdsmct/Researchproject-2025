@@ -1,5 +1,11 @@
 import { PropsWithChildren, useEffect, useState } from "react";
-import { View, Text, Pressable, StyleSheet } from "react-native";
+import {
+  View,
+  Text,
+  Pressable,
+  StyleSheet,
+  TouchableOpacity,
+} from "react-native";
 import VerticalSlider from "rn-vertical-slider";
 import { ChevronLeft, ChevronRight } from "lucide-react-native";
 
@@ -32,12 +38,11 @@ export function ChannelController({
       : [channel.channel];
 
   // Calculate the average value from channelValues
-  const storedValues = channelIds.map((id) =>
-    channelValues.find((cv) => cv.channel === id)?.value ?? 0
+  const storedValues = channelIds.map(
+    (id) => channelValues.find((cv) => cv.channel === id)?.value ?? 0
   );
   const averageVal =
     storedValues.reduce((sum, v) => sum + v, 0) / channelIds.length;
-  const sliderValue = Math.round((averageVal / 255) * 100);
 
   // Get current subchannel if multipurpose
   const currentSubChannel =
@@ -45,7 +50,21 @@ export function ChannelController({
       ? channel.subChannels[currentSubChannelIndex]
       : null;
 
+  // Calculate min and max values based on subchannel range
+  const minValue = currentSubChannel?.range?.start ?? 0;
+  const maxValue = currentSubChannel?.range?.end ?? 255;
+
+  // Adjust slider value calculation to use subchannel range
+  const normalizedValue = (value: number) => 
+    Math.round(((value - minValue) / (maxValue - minValue)) * 100);
+
+  const denormalizedValue = (percent: number) =>
+    Math.round((percent / 100) * (maxValue - minValue) + minValue);
+
+  const sliderValue = normalizedValue(averageVal);
+
   const handlePrevSubChannel = () => {
+    console.log("Prev subchannel");
     if (!channel.multipurpose || !channel.subChannels) return;
     setCurrentSubChannelIndex((prev) =>
       prev > 0 ? prev - 1 : channel.subChannels.length - 1
@@ -53,6 +72,7 @@ export function ChannelController({
   };
 
   const handleNextSubChannel = () => {
+    console.log("Next subchannel");
     if (!channel.multipurpose || !channel.subChannels) return;
     setCurrentSubChannelIndex((prev) =>
       prev < channel.subChannels.length - 1 ? prev + 1 : 0
@@ -64,7 +84,7 @@ export function ChannelController({
   }, [flash]);
 
   const handleValueChange = (val: number) => {
-    channelIds.forEach((id) => setChannelValue(id, val));
+    channelIds.forEach((id) => setChannelValue({ channel: id, value: val }));
   };
 
   const channelDisplay =
@@ -100,11 +120,10 @@ export function ChannelController({
         <VerticalSlider
           value={sliderValue}
           onChange={(percent: number) => {
-            // const scaledValue = Math.round((percent / 100) * 255);
-            // handleValueChange(scaledValue);
+            // Optional: Handle live updates if needed
           }}
           onComplete={(percent: number) => {
-            const scaledValue = Math.round((percent / 100) * 255);
+            const scaledValue = denormalizedValue(percent);
             handleValueChange(scaledValue);
           }}
           height={200}
@@ -128,7 +147,7 @@ export function ChannelController({
               }}
             >
               <Text style={{ fontSize: 16, fontWeight: "bold" }}>
-                {sliderValue}
+                {Math.round(averageVal)} {/* Show actual DMX value instead of percentage */}
               </Text>
             </View>
           )}
@@ -146,7 +165,7 @@ export function ChannelController({
           }}
           onPressOut={() => {
             oldValues.forEach((prev, i) => {
-              setChannelValue(channelIds[i], prev);
+              setChannelValue({ channel: channelIds[i], value: prev });
             });
             setFlash(false);
           }}

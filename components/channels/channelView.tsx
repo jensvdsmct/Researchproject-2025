@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ScrollView, View } from "react-native";
+import { FlatList, ScrollView, View } from "react-native";
 import { ChannelController } from "@/components/channels/channelController";
 import { ChannelFilter } from "@/components/channels/channelFilter";
 import { Fixture } from "@/types/fixture";

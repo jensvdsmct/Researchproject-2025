@@ -1,3 +1,15 @@
+export enum channelType {
+  Intensity = "Intensity",
+  Color = "Color",
+  Position = "Position",
+  Effects = "Effects",
+  Strobe = "Strobe",
+  Sound = "Sound",
+  Red = "Red",
+  Green = "Green",
+  Blue = "Blue",
+}
+
 export type Fixture = {
   id: number; // ID of the light Ex: 1
   name: string; // Name of the light Ex: "LED PAR"
@@ -10,8 +22,8 @@ export type Fixture = {
 
 export type channel = {
   name: string; // Name of the channel Ex: "Red"
-  type: string; // Type of the channel Ex: "Color"
-  subtype?: string; // Subtype of the channel Ex: "Red"
+  type: channelType; // Type of the channel Ex: "Color"
+  subtype?: channelType; // Subtype of the channel Ex: "Red"
   channel: number; // Channel number Ex: 001
   multipurpose?: boolean; // Is the channel multipurpose
   subChannels?: subChannel[]; // Subchannels of the channel
@@ -20,7 +32,7 @@ export type channel = {
 
 export type subChannel = {
   name: string; // Name of the subchannel Ex: "Strobe 1 - 100%"
-  type: string; // Type of the subchannel Ex: "Strobe"
+  type: channelType; // Type of the subchannel Ex: "Strobe"
   range: range; // Range of the subchannel Ex: {start: 000, end: 125}
 };
 

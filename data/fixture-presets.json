@@ -1,0 +1,65 @@
+{
+  "presets": [
+    {
+      "id": 1,
+      "name": "LED PARty TCL Spot",
+      "description": "5-channel LED PAR light with RGB, dimmer and effects",
+      "fixtureType": "LED PAR",
+      "manufacturer": "Eurolite",
+      "numberOfChannels": 5,
+      "channels": [
+        {
+          "name": "Red",
+          "type": "Color",
+          "subtype": "Red",
+          "channel": 1,
+          "multipurpose": false
+        },
+        {
+          "name": "Green",
+          "type": "Color",
+          "subtype": "Green",
+          "channel": 2,
+          "multipurpose": false
+        },
+        {
+          "name": "Blue",
+          "type": "Color",
+          "subtype": "Blue",
+          "channel": 3,
+          "multipurpose": false
+        },
+        {
+          "name": "Dimmer",
+          "type": "Intensity",
+          "channel": 4,
+          "multipurpose": false
+        },
+        {
+          "name": "Effects",
+          "type": "Effects",
+          "channel": 5,
+          "multipurpose": true,
+          "subChannels": [
+            {
+              "name": "Sound",
+              "type": "Sound",
+              "range": { "start": 1, "end": 5 }
+            },
+            {
+              "name": "Strobe",
+              "type": "Strobe",
+              "range": { "start": 11, "end": 255 }
+            }
+          ]
+        }
+      ],
+      "metadata": {
+        "author": "System",
+        "dateCreated": "2024-01-24",
+        "lastModified": "2024-01-24",
+        "version": "1.0"
+      }
+    }
+  ]
+}

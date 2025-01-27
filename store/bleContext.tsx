@@ -1,7 +1,10 @@
 import React, { createContext, useContext } from "react";
 import useBLE from "@/hooks/useBLE";
 
-const BLEContext = createContext<any>(null);
+// Add return type to include the new function
+type BLEContextType = ReturnType<typeof useBLE>;
+
+const BLEContext = createContext<BLEContextType | null>(null);
 
 export const BLEProvider = ({ children }: { children: React.ReactNode }) => {
   const ble = useBLE(); // Single instance of useBLE

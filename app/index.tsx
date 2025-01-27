@@ -37,7 +37,7 @@ export default function Index() {
         <Button
           label="Fixture editor"
           buttonBackgroundColor="#2979FF"
-          onPress={() => router.push("/fixture-presets/create")}
+          onPress={() => router.push("/fixture-presets")}
         />
 
         {/* Divider */}
@@ -61,7 +61,7 @@ export default function Index() {
           label="Effect Pads"
           buttonBackgroundColor="#efefef"
           buttonForegroundColor="#122"
-          onPress={() => router.push("/effect")}
+          onPress={() => router.push("/effect-pads")}
         />
       </ThemedView>
     </ThemedView>
